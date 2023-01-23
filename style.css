@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.course-container {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.titlecard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title-ele {
+    background-color: white;
+    margin: 10px 10px;
+    border-radius: 10px;
+    padding: 0px 20px;
+    min-width: 70px;
+    text-align: center;
+}
+
+
+
+
+.content-box {
+    background-color: white;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.grade-graph {
+    height: 300px;
+    width: 300px;
+    background-color: red;
+
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid black;
+}
+
+.grade-bar {
+    height: 100%;
+    background-color: grey;
+    border: 1px solid black;
+    position: relative;
+}
+
+.bar-progress {
+    display: flex;
+    width: 100%;
+    background-color: green;
+    position: absolute;
+    bottom: 0;
+}
+
+
+.user-form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0px 10px;
+}
+
+.user-form input{
+    margin: 20px 0;
+    width: 100%;
+}
+
+
+
+.module-container {
+    
+    margin: 10px 10px;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.ppf {
+    background-color: purple;
+}
+
+.dsa {
+    background-color: red;
+}
+
+.ct {
+    background-color: green;
+}
