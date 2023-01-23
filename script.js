@@ -155,7 +155,50 @@ DSAModule.addComponent("Coursework", 60, 100)
 DSAModule.addComponent("Exam", 40, 50)
 
 
-buildGraph(DSAModule)
+
+
+function buildModuleCard(module){
+
+    const moduleContainer = document.createElement("div")
+    moduleContainer.classList.add("module-container")
+    moduleContainer.classList.add("ct")
+
+
+
+    const titleCard = document.createElement("div")
+    titleCard.classList.add("titlecard")
+    moduleContainer.appendChild(titleCard)
+
+    const moduleName = document.createElement("div")
+    moduleName.classList.add("title-ele")
+    moduleName.classList.add("module-name")
+    moduleName.innerHTML = `<h2>${module.title}</h2>`
+    titleCard.appendChild(moduleName)
+
+    const moduleGrade = document.createElement("div")
+    moduleGrade.classList.add("module-grade")
+    moduleGrade.classList.add("title-ele")
+    moduleGrade.innerHTML = `<h2>0%</h2>`
+    titleCard.appendChild(moduleGrade)
+
+    const contentBox = document.createElement("div")
+    contentBox.classList.add("content-box")
+    moduleContainer.appendChild(contentBox)
+
+    const userForm = document.createElement("div")
+    userForm.classList.add("user-form")
+    contentBox.appendChild(userForm)
+
+    const courseContainer = document.querySelector(".course-container")
+    courseContainer.appendChild(moduleContainer)
+
+    buildGraph(module)
+}
+
+buildModuleCard(DSAModule)
+
+
+
 
 
 function buildGraph(module){
