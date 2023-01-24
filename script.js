@@ -2,7 +2,7 @@
 
 class Palette {
 
-    constructor(){
+    constructor() {
 
         this.red = 255
         this.green = 0
@@ -11,32 +11,26 @@ class Palette {
 
     }
 
-    matchPercentage(x){
+    matchPercentage(x) {
 
         const maximum = 255 + 255
         this.stage = Math.ceil(x / 100 * maximum)
-
         this.updateRedValue()
         this.updateGreenValue()
     }
 
-    updateRedValue(){
+    updateRedValue() {
 
         const progress = Math.max(this.stage - 255, 0)
         this.red = 255 - progress
     }
 
-    updateGreenValue(){
+    updateGreenValue() {
 
         const progress = Math.min(this.stage, 255)
         this.green = progress
     }
-
 }
-
-
-
-
 
 
 
@@ -98,9 +92,7 @@ class Module {
 
             const pairbox = component.pairbox
             this.userForm.appendChild(pairbox)
-
         }
-
     }
 
     buildGraphBox() {
@@ -135,7 +127,6 @@ class Module {
         this.addBarBox(component)
     }
 }
-
 
 
 class Component {
