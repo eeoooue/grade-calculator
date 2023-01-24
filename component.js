@@ -1,5 +1,6 @@
 
 import { Palette } from "./palette.js"
+import { Factory } from "./factory.js"
 
 export class Component {
 
@@ -11,6 +12,7 @@ export class Component {
         this.marks_available = marks
         this.user_score = 0
         this.barColour = new Palette()
+        this.factory = new Factory()
 
         this.buildElements()
     }
@@ -29,12 +31,7 @@ export class Component {
 
     buildInput() {
 
-        this.inputElement = document.createElement("input")
-        this.inputElement.id = this.title
-        this.inputElement.type = "range"
-        this.inputElement.min = "0"
-        this.inputElement.value = "0"
-        this.inputElement.max = `${this.marks_available}`
+        this.inputElement = this.factory.createInputSlider(this.title, this.marks_available)
         this.inputElement.addEventListener("input", (e) => this.updateUserScore(e.target.value))
     }
 
@@ -47,31 +44,16 @@ export class Component {
 
     buildBarBox() {
 
-        this.barBox = document.createElement("div")
-        this.barBox.classList.add("grade-bar")
+        this.barBox = this.factory.makeDivWithClasses(["grade-bar"])
         this.barBox.style.width = `${this.weight}%`
 
-        this.bar = document.createElement("div")
-        this.bar.classList.add("bar-progress")
+        this.bar = this.factory.makeDivWithClasses(["bar-progress"])
         this.bar.style.height = `${this.getPercentageScore()}%`
         this.barBox.appendChild(this.bar)
     }
 
-    updateBarColour() {
-
-        const percentile = this.getPercentageScore()
-        this.barColour.matchPercentage(percentile)
-        this.bar.style.backgroundColor = `rgb(${this.barColour.red}, ${this.barColour.green}, ${this.barColour.blue})`
-    }
-
-    updateBarProgress() {
-
-        this.bar.style.height = `${this.getPercentageScore()}%`
-    }
-
-    updateLabelText() {
-
-        this.labelElement.innerText = `${this.title} mark: ${this.user_score}/${this.marks_available}`
+    getPercentageScore() {
+        return 100 * this.user_score / this.marks_available
     }
 
     updateUserScore(x) {
@@ -84,11 +66,21 @@ export class Component {
         this.parent.recalculateAttainment()
     }
 
-    getPercentageWeight() {
-        return this.weight
+    updateLabelText() {
+
+        this.labelElement.innerText = `${this.title} mark: ${this.user_score}/${this.marks_available}`
     }
 
-    getPercentageScore() {
-        return 100 * this.user_score / this.marks_available
+    updateBarProgress() {
+
+        this.bar.style.height = `${this.getPercentageScore()}%`
     }
+
+    updateBarColour() {
+
+        const percentile = this.getPercentageScore()
+        this.barColour.matchPercentage(percentile)
+        this.bar.style.backgroundColor = `rgb(${this.barColour.red}, ${this.barColour.green}, ${this.barColour.blue})`
+    }
+    
 }
