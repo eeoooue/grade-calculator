@@ -47,7 +47,7 @@ body {
 .grade-graph {
     height: 300px;
     width: 300px;
-    background-color: red;
+    background-color: black;
 
     display: flex;
     flex-direction: row;
@@ -83,24 +83,11 @@ body {
     width: 100%;
 }
 
-
-
 .module-container {
     
     margin: 10px 10px;
     width: 800px;
     height: 500px;
     border-radius: 10px;
-}
-
-.ppf {
-    background-color: purple;
-}
-
-.dsa {
-    background-color: red;
-}
-
-.ct {
-    background-color: green;
+    background-color: grey;
 }
