@@ -6,15 +6,12 @@ courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
 
 SwapToModule("441105")
 
-function SwapToModule(module_id){    
-
-    console.log("hello")
+function SwapToModule(module_id){
 
     const courseContainer = document.querySelector(".course-container")
     courseContainer.innerHTML = ""
 
     const module = CreateModule(module_id)
-
     courseContainer.appendChild(module.moduleContainer)
 }
 
@@ -23,7 +20,7 @@ function CreateModule(module_id){
     switch(module_id){
 
         case "441105":
-            const module441105 = new Module("Algorithms and Data Structures")
+            const module441105 = new Module("Algorithms & Data Structures")
             module441105.addComponent("Coursework", 60, 100)
             module441105.addComponent("Exam", 40, 50)
             return module441105
