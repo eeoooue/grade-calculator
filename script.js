@@ -1,50 +1,94 @@
 
+
 class Module {
 
-    constructor(title){
+    constructor(title) {
 
         this.title = title
         this.curweight = 0
         this.components = []
         this.attainment = 0
 
-        this.graph = this.buildGraphBox()
+        this.buildGraphBox()
     }
 
-    buildGraphBox(){
+    buildAll() {
 
-        const graphbox = document.createElement("div")
-        graphbox.classList.add("grade-graph")
-
-        return graphbox
+        this.buildModuleCard()
     }
 
-    addBarBox(component){
+    buildModuleCard() {
+
+        this.moduleContainer = document.createElement("div")
+        this.moduleContainer.classList.add("module-container")
+
+        this.titleCard = document.createElement("div")
+        this.titleCard.classList.add("titlecard")
+        this.moduleContainer.appendChild(this.titleCard)
+
+        this.moduleName = document.createElement("div")
+        this.moduleName.classList.add("title-ele")
+        this.moduleName.classList.add("module-name")
+        this.moduleName.innerHTML = `<h2>${this.title}</h2>`
+        this.titleCard.appendChild(this.moduleName)
+
+        this.moduleGrade = document.createElement("div")
+        this.moduleGrade.classList.add("module-grade")
+        this.moduleGrade.classList.add("title-ele")
+        this.moduleGrade.innerHTML = `<h2>0%</h2>`
+        this.titleCard.appendChild(this.moduleGrade)
+
+        this.contentBox = document.createElement("div")
+        this.contentBox.classList.add("content-box")
+        this.moduleContainer.appendChild(this.contentBox)
+
+        this.userForm = document.createElement("div")
+        this.userForm.classList.add("user-form")
+        this.contentBox.appendChild(this.userForm)
+
+        this.buildGraph()
+    }
+
+
+    buildGraph() {
+
+        this.contentBox.appendChild(this.graph)
+
+        for (const component of this.components) {
+
+            const pairbox = component.pairbox
+            this.userForm.appendChild(pairbox)
+
+        }
+
+    }
+
+
+
+    buildGraphBox() {
+
+        this.graph = document.createElement("div")
+        this.graph.classList.add("grade-graph")
+    }
+
+    addBarBox(component) {
 
         this.graph.appendChild(component.barBox)
     }
 
-
-    updateAttainment(){
-
-        const attainmentLabel = document.querySelector(".module-grade")
-        attainmentLabel.innerHTML = `<h2>${Math.ceil(this.attainment)}%</h2>`
-    }
-
-    recalculateAttainment(){
+    recalculateAttainment() {
 
         this.attainment = 0
-        for(const component of this.components){
+        for (const component of this.components) {
             const percentage = component.getPercentageScore()
             const weight = component.getPercentageWeight()
             this.attainment += (percentage * weight) / 100
         }
 
-        console.log(`your attainment is ${this.attainment}%`)
-        this.updateAttainment()
+        this.moduleGrade.innerHTML = `<h2>${Math.ceil(this.attainment)}%</h2>`
     }
 
-    addComponent(title, weight, marks){
+    addComponent(title, weight, marks) {
 
         this.curweight += weight
 
@@ -53,10 +97,10 @@ class Module {
         this.addBarBox(component)
     }
 
-    updateComponent(title, mark){
+    updateComponent(title, mark) {
 
-        for(const component of this.components){
-            if(component.title == title){
+        for (const component of this.components) {
+            if (component.title == title) {
                 component.updateUserScore(mark)
             }
         }
@@ -65,9 +109,11 @@ class Module {
     }
 }
 
+
+
 class Component {
 
-    constructor(title, weight, marks){
+    constructor(title, weight, marks) {
 
         this.title = title
         this.weight = weight
@@ -77,7 +123,7 @@ class Component {
         this.buildElements()
     }
 
-    buildElements(){
+    buildElements() {
 
         this.buildInput()
         this.buildLabel()
@@ -89,7 +135,7 @@ class Component {
         this.buildBarBox()
     }
 
-    buildBarBox(){
+    buildBarBox() {
 
         this.barBox = document.createElement("div")
         this.barBox.classList.add("grade-bar")
@@ -97,12 +143,12 @@ class Component {
 
         this.bar = document.createElement("div")
         this.bar.classList.add("bar-progress")
-        this.bar.style.height =  `${this.getPercentageScore()}%`
+        this.bar.style.height = `${this.getPercentageScore()}%`
         this.barBox.appendChild(this.bar)
     }
 
 
-    buildInput(){
+    buildInput() {
 
         this.inputElement = document.createElement("input")
         this.inputElement.id = this.title
@@ -112,124 +158,83 @@ class Component {
         this.inputElement.addEventListener("input", (e) => this.updateUserScore(e.target.value))
     }
 
-    buildLabel(){
+    buildLabel() {
 
         this.labelElement = document.createElement("label")
         this.labelElement.for = this.title
         this.updateLabelText()
     }
 
-    updateBarProgress(){
+    updateBarProgress() {
 
-        this.bar.style.height =  `${this.getPercentageScore()}%`
-
+        this.bar.style.height = `${this.getPercentageScore()}%`
     }
 
 
-    updateLabelText(){
+    updateLabelText() {
 
         this.labelElement.innerText = `${this.title} mark: ${this.user_score}/${this.marks_available}`
     }
 
-    updateUserScore(x){
+    updateUserScore(x) {
         this.user_score = x
         this.updateLabelText()
         this.updateBarProgress()
 
-        DSAModule.recalculateAttainment()
+        for (const module of AllModules) {
+            module.recalculateAttainment()
+        }
+
     }
 
-    getPercentageWeight(){
+    getPercentageWeight() {
         return this.weight
     }
 
-    getPercentageScore(){
+    getPercentageScore() {
         return 100 * this.user_score / this.marks_available
     }
 
 }
 
+const courseContainer = document.querySelector(".course-container")
+const AllModules = new Set()
 
 const DSAModule = new Module("Algorithms and Data Structures")
 DSAModule.addComponent("Coursework", 60, 100)
 DSAModule.addComponent("Exam", 40, 50)
+DSAModule.buildAll()
+AllModules.add(DSAModule)
+
+courseContainer.appendChild(DSAModule.moduleContainer)
+
+
+const PPF = new Module("Programming Portfolio")
+PPF.addComponent("Lab Book", 50, 50)
+PPF.addComponent("Practical Exam", 25, 7)
+PPF.addComponent("Capstone Project", 25, 50)
+PPF.buildAll()
+AllModules.add(PPF)
+
+courseContainer.appendChild(PPF.moduleContainer)
 
 
 
 
-function buildModuleCard(module){
+const CT = new Module("Computational Thinking")
+CT.addComponent("Assessment A", 15, 15)
+CT.addComponent("Assessment B", 20, 20)
+CT.addComponent("Assessment C", 15, 15)
+CT.addComponent("Assessment D", 20, 20)
+CT.addComponent("Assessment E", 20, 20)
+CT.addComponent("Assessment F", 10, 10)
 
-    const moduleContainer = document.createElement("div")
-    moduleContainer.classList.add("module-container")
-    moduleContainer.classList.add("ct")
 
+CT.buildAll()
+AllModules.add(CT)
 
-
-    const titleCard = document.createElement("div")
-    titleCard.classList.add("titlecard")
-    moduleContainer.appendChild(titleCard)
-
-    const moduleName = document.createElement("div")
-    moduleName.classList.add("title-ele")
-    moduleName.classList.add("module-name")
-    moduleName.innerHTML = `<h2>${module.title}</h2>`
-    titleCard.appendChild(moduleName)
-
-    const moduleGrade = document.createElement("div")
-    moduleGrade.classList.add("module-grade")
-    moduleGrade.classList.add("title-ele")
-    moduleGrade.innerHTML = `<h2>0%</h2>`
-    titleCard.appendChild(moduleGrade)
-
-    const contentBox = document.createElement("div")
-    contentBox.classList.add("content-box")
-    moduleContainer.appendChild(contentBox)
-
-    const userForm = document.createElement("div")
-    userForm.classList.add("user-form")
-    contentBox.appendChild(userForm)
-
-    const courseContainer = document.querySelector(".course-container")
-    courseContainer.appendChild(moduleContainer)
-
-    buildGraph(module)
-}
-
-buildModuleCard(DSAModule)
+courseContainer.appendChild(CT.moduleContainer)
 
 
 
-
-
-function buildGraph(module){
-
-
-
-    const contentBox = document.querySelector(".content-box")
-
-    contentBox.appendChild(module.graph)
-
-    const formarea = document.querySelector(".user-form")
-
-    for(const component of module.components){
-
-        const pairbox = component.pairbox
-        formarea.appendChild(pairbox)
-
-    }
-
-}
-
-
-
-function updateLabel(e) {
-
-    const max = +e.target.max
-    const min = +e.target.min
-
-    const value = +e.target.value
-    const label = e.target.nextElementSibling
-
-    label.innerHTML = `mark: ${value}/${max}`
-}
 
