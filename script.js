@@ -63,8 +63,6 @@ class Module {
 
     }
 
-
-
     buildGraphBox() {
 
         this.graph = document.createElement("div")
@@ -96,17 +94,6 @@ class Module {
         this.components.push(component)
         this.addBarBox(component)
     }
-
-    updateComponent(title, mark) {
-
-        for (const component of this.components) {
-            if (component.title == title) {
-                component.updateUserScore(mark)
-            }
-        }
-
-        this.recalculateAttainment()
-    }
 }
 
 
@@ -135,6 +122,24 @@ class Component {
         this.buildBarBox()
     }
 
+    buildInput() {
+
+        this.inputElement = document.createElement("input")
+        this.inputElement.id = this.title
+        this.inputElement.type = "range"
+        this.inputElement.min = "0"
+        this.inputElement.value = "0"
+        this.inputElement.max = `${this.marks_available}`
+        this.inputElement.addEventListener("input", (e) => this.updateUserScore(e.target.value))
+    }
+
+    buildLabel() {
+
+        this.labelElement = document.createElement("label")
+        this.labelElement.for = this.title
+        this.updateLabelText()
+    }
+
     buildBarBox() {
 
         this.barBox = document.createElement("div")
@@ -147,29 +152,10 @@ class Component {
         this.barBox.appendChild(this.bar)
     }
 
-
-    buildInput() {
-
-        this.inputElement = document.createElement("input")
-        this.inputElement.id = this.title
-        this.inputElement.type = "range"
-        this.inputElement.min = "0"
-        this.inputElement.max = `${this.marks_available}`
-        this.inputElement.addEventListener("input", (e) => this.updateUserScore(e.target.value))
-    }
-
-    buildLabel() {
-
-        this.labelElement = document.createElement("label")
-        this.labelElement.for = this.title
-        this.updateLabelText()
-    }
-
     updateBarProgress() {
 
         this.bar.style.height = `${this.getPercentageScore()}%`
     }
-
 
     updateLabelText() {
 
@@ -177,6 +163,7 @@ class Component {
     }
 
     updateUserScore(x) {
+
         this.user_score = x
         this.updateLabelText()
         this.updateBarProgress()
@@ -184,7 +171,6 @@ class Component {
         for (const module of AllModules) {
             module.recalculateAttainment()
         }
-
     }
 
     getPercentageWeight() {
@@ -194,7 +180,6 @@ class Component {
     getPercentageScore() {
         return 100 * this.user_score / this.marks_available
     }
-
 }
 
 const courseContainer = document.querySelector(".course-container")
