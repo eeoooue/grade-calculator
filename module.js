@@ -57,10 +57,7 @@ export class Module {
 
         const component = new Component(this, title, weight, marks)
         this.components.push(component)
-        this.graph.appendChild(component.barBox)
+        this.graph.appendChild(component.progressBar.container)
         this.userForm.appendChild(component.pairbox)
     }
 }
-
-
-

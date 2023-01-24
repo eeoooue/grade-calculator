@@ -6,27 +6,24 @@ export class Palette {
         this.red = 255
         this.green = 0
         this.blue = 64
-        this.stage = 0
-
     }
 
     matchPercentage(x) {
 
-        const maximum = 255 + 255
-        this.stage = Math.ceil(x / 100 * maximum)
-        this.updateRedValue()
-        this.updateGreenValue()
+        const stage = Math.ceil(x / 100 * 512)
+        this.updateRedValue(stage)
+        this.updateGreenValue(stage)
     }
 
-    updateRedValue() {
+    updateRedValue(stage) {
 
-        const progress = Math.max(this.stage - 255, 0)
+        const progress = Math.max(stage - 255, 0)
         this.red = 255 - progress
     }
 
-    updateGreenValue() {
+    updateGreenValue(stage) {
 
-        const progress = Math.min(this.stage, 255)
+        const progress = Math.min(stage, 255)
         this.green = progress
     }
 }

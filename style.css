@@ -9,7 +9,6 @@ body {
     margin: 0;
 }
 
-
 .course-container {
 
     display: flex;
@@ -31,9 +30,6 @@ body {
     text-align: center;
 }
 
-
-
-
 .content-box {
     background-color: white;
     margin: 10px 10px;
@@ -48,10 +44,8 @@ body {
     height: 300px;
     width: 300px;
     background-color: black;
-
     display: flex;
     flex-direction: row;
-
     border: 1px solid black;
 }
 
@@ -69,7 +63,6 @@ body {
     position: absolute;
     bottom: 0;
 }
-
 
 .user-form{
     display: flex;
