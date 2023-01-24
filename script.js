@@ -1,5 +1,45 @@
 
 
+class Palette {
+
+    constructor(){
+
+        this.red = 255
+        this.green = 0
+        this.blue = 64
+        this.stage = 0
+
+    }
+
+    matchPercentage(x){
+
+        const maximum = 255 + 255
+        this.stage = Math.ceil(x / 100 * maximum)
+
+        this.updateRedValue()
+        this.updateGreenValue()
+    }
+
+    updateRedValue(){
+
+        const progress = Math.max(this.stage - 255, 0)
+        this.red = 255 - progress
+    }
+
+    updateGreenValue(){
+
+        const progress = Math.min(this.stage, 255)
+        this.green = progress
+    }
+
+}
+
+
+
+
+
+
+
 class Module {
 
     constructor(title) {
@@ -106,6 +146,7 @@ class Component {
         this.weight = weight
         this.marks_available = marks
         this.user_score = 0
+        this.barColour = new Palette()
 
         this.buildElements()
     }
@@ -152,6 +193,13 @@ class Component {
         this.barBox.appendChild(this.bar)
     }
 
+    updateBarColour() {
+
+        const percentile = this.getPercentageScore()
+        this.barColour.matchPercentage(percentile)
+        this.bar.style.backgroundColor = `rgb(${this.barColour.red}, ${this.barColour.green}, ${this.barColour.blue})`
+    }
+
     updateBarProgress() {
 
         this.bar.style.height = `${this.getPercentageScore()}%`
@@ -167,6 +215,7 @@ class Component {
         this.user_score = x
         this.updateLabelText()
         this.updateBarProgress()
+        this.updateBarColour()
 
         for (const module of AllModules) {
             module.recalculateAttainment()
@@ -204,8 +253,6 @@ AllModules.add(PPF)
 courseContainer.appendChild(PPF.moduleContainer)
 
 
-
-
 const CT = new Module("Computational Thinking")
 CT.addComponent("Assessment A", 15, 15)
 CT.addComponent("Assessment B", 20, 20)
@@ -214,12 +261,8 @@ CT.addComponent("Assessment D", 20, 20)
 CT.addComponent("Assessment E", 20, 20)
 CT.addComponent("Assessment F", 10, 10)
 
-
 CT.buildAll()
 AllModules.add(CT)
 
 courseContainer.appendChild(CT.moduleContainer)
-
-
-
 
