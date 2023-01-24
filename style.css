@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 body {
     font-family: "Roboto", sans-serif;
@@ -8,6 +8,9 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: #1A1A1A;
+    color: white;
+    color: rgba(255,255,255,0.75);
 }
 
 .course-container {
@@ -17,22 +20,24 @@ body {
 }
 
 .module-container {
-    
     margin: 10px 10px;
     max-width: 100vw;
     min-height: 500px;
     border-radius: 10px;
-    background-color: grey;
 }
 
 .titlecard {
+    margin: 10px 10px;
+    background-color: #282828;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-radius: 10px;
 }
 
 .title-ele {
-    background-color: white;
+    color: white;
+    background-color: #373737;
     margin: 10px 10px;
     border-radius: 10px;
     padding: 0px 20px;
@@ -46,22 +51,24 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: #282828;
+    border-radius: 10px;
 }
 
 .grade-graph {
     margin: 20px 10px;
     height: 30vh;
     width: 30vh;
-    background-color: black;
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
 }
 
 .grade-bar {
     height: 100%;
-    background-color: grey;
-    border: 1px solid black;
+    background-color: none;
+    border: 1px solid #1A1A1A;
+    background-color: #373737;
+    border-radius: 5px;
     position: relative;
 }
 
@@ -69,12 +76,12 @@ body {
     display: flex;
     width: 100%;
     position: absolute;
+    border-radius: 5px;
     bottom: 0;
 }
 
 .user-form{
     padding: 1vh 1vw;
-    background-color: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
