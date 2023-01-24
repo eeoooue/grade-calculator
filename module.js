@@ -48,7 +48,7 @@ export class Module {
             this.attainment += (component.getPercentageScore() / 100) * component.weight
         }
 
-        this.moduleGrade.innerHTML = `<h2>${Math.ceil(this.attainment)}%</h2>`
+        this.moduleGrade.innerHTML = `<h2>${Math.floor(this.attainment)}%</h2>`
     }
 
     addComponent(title, weight, marks) {
