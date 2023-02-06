@@ -4,7 +4,7 @@ import { Module } from "./module.js"
 const courseSelector = document.getElementById("course-selector")
 courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
 
-SwapToModule("441101")
+SwapToModule("441105")
 
 function SwapToModule(module_id){
 
