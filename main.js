@@ -50,7 +50,8 @@ function CreateModule(module_id){
         case "441108":
             const module441108 = new Module("Professional Development")
             module441108.addComponent("Written Portfolio", 30, 50)
-            module441108.addComponent("Sector Quizzes", 30, 50)
+            module441108.addComponent("Sector Quizzes A", 15, 25)
+            module441108.addComponent("Sector Quizzes B", 15, 25)
             module441108.addComponent("Team Design Project", 40, 100)
             return module441108
     }
