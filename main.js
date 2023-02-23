@@ -21,7 +21,8 @@ function CreateModule(module_id){
 
         case "441101":
             const module441101 = new Module("Programming Portfolio")
-            module441101.addComponent("Lab Book", 50, 50)
+            module441101.addComponent("Summative Assessments 1-8", 30, 30)
+            module441101.addComponent("Summative Assessments 9-14", 20, 20)
             module441101.addComponent("Practical Exam", 25, 7)
             module441101.addComponent("Capstone Project", 25, 50)
             return module441101
