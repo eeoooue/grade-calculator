@@ -19,6 +19,8 @@ function CreateModule(module_id){
 
     switch(module_id){
 
+        // addComponent(Title, Weight, Marks)
+
         case "441101":
             const module441101 = new Module("Programming Portfolio")
             module441101.addComponent("Summative Assessments 1-8", 30, 30)
@@ -29,7 +31,36 @@ function CreateModule(module_id){
 
         case "441102":
             const module441102 = new Module("Architectures, Operating Systems & the Cloud")
-            module441102.addComponent("Lab Portfolio", 100, 100)
+            
+            module441102.addComponent("Structure & Presentation", 10, 10)
+
+            module441102.addComponent("Lab 1 Completion", 7, 7)
+            module441102.addComponent("Lab 1 Observations", 3, 3)
+
+            module441102.addComponent("Lab 2 Completion", 7, 7)
+            module441102.addComponent("Lab 2 Observations", 3, 3)
+
+            module441102.addComponent("Lab 3 Completion", 7, 7)
+            module441102.addComponent("Lab 3 Observations", 3, 3)
+
+            module441102.addComponent("Lab 4 Completion", 7, 7)
+            module441102.addComponent("Lab 4 Observations", 3, 3)
+
+            module441102.addComponent("Lab 5 Completion", 7, 7)
+            module441102.addComponent("Lab 5 Observations", 3, 3)
+
+            module441102.addComponent("Lab 6 Completion", 7, 7)
+            module441102.addComponent("Lab 6 Observations", 3, 3)
+
+            module441102.addComponent("Lab 7 Completion", 7, 7)
+            module441102.addComponent("Lab 7 Observations", 3, 3)
+
+            module441102.addComponent("Lab 8 Completion", 7, 7)
+            module441102.addComponent("Lab 8 Observations", 3, 3)
+
+            module441102.addComponent("Lab 9 Completion", 7, 7)
+            module441102.addComponent("Lab 9 Observations", 3, 3)
+
             return module441102
 
         case "441104":
