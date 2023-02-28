@@ -15,11 +15,11 @@ export class Module {
         this.buildElements()
     }
 
-    setBlurb(message) {
+    addTextbox(message) {
 
-        this.blurbBox = this.Factory.makeDivWithClasses(["component-form", "blurb-box"])
-        this.userForm.appendChild(this.blurbBox)
-        this.blurbBox.innerHTML = message
+        const textbox = this.Factory.makeDivWithClasses(["component-form", "blurb-box"])
+        textbox.innerHTML = message
+        this.userForm.appendChild(textbox)
     }
 
     buildElements() {
