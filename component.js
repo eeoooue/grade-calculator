@@ -31,7 +31,7 @@ export class Component {
         this.pairbox = factory.makeDivWithClasses(["component-form"])
         this.pairbox.appendChild(this.labelElement)
         this.pairbox.appendChild(this.inputElement)
-        
+
     }
 
     getPercentageScore() {

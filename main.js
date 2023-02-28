@@ -6,7 +6,7 @@ courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
 
 SwapToModule("441105")
 
-function SwapToModule(module_id){
+function SwapToModule(module_id) {
 
     const courseContainer = document.querySelector(".course-container")
     courseContainer.innerHTML = ""
@@ -15,9 +15,9 @@ function SwapToModule(module_id){
     courseContainer.appendChild(module.moduleContainer)
 }
 
-function CreateModule(module_id){
+function CreateModule(module_id) {
 
-    switch(module_id){
+    switch (module_id) {
 
         // addComponent(Title, Weight, Marks)
 

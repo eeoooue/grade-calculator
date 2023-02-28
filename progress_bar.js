@@ -4,7 +4,7 @@ import { Palette } from "./palette.js"
 
 export class ProgressBar {
 
-    constructor(parent, weight){
+    constructor(parent, weight) {
 
         this.parent = parent
         this.palette = new Palette()

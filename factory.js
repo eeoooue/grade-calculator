@@ -1,16 +1,16 @@
 
 export class Factory {
 
-    makeDivWithClasses(classes){
+    makeDivWithClasses(classes) {
 
         const div = document.createElement("div")
-        for(const className of classes){
+        for (const className of classes) {
             div.classList.add(className)
         }
         return div
     }
 
-    createInputSlider(title, max_value){
+    createInputSlider(title, max_value) {
 
         const slider = document.createElement("input")
         slider.id = title
