@@ -15,6 +15,13 @@ export class Module {
         this.buildElements()
     }
 
+    setBlurb(message) {
+
+        this.blurbBox = this.Factory.makeDivWithClasses(["component-form", "blurb-box"])
+        this.userForm.appendChild(this.blurbBox)
+        this.blurbBox.innerHTML = message
+    }
+
     buildElements() {
 
         this.graph = this.Factory.makeDivWithClasses(["grade-graph"])
