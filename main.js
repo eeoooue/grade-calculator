@@ -23,19 +23,22 @@ function CreateModule(module_id){
 
         case "441101":
             const module441101 = new Module("Programming Portfolio")
+            module441101.addTextbox("Trimester 1")
             module441101.addComponent("Summative Assessments 1-8", 30, 30)
-            module441101.addComponent("Summative Assessments 9-14", 20, 20)
             module441101.addComponent("Practical Exam", 25, 7)
+
+            module441101.addTextbox("Trimester 2")
+            module441101.addComponent("Summative Assessments 9-14", 20, 20)
             module441101.addComponent("Capstone Project", 25, 50)
             return module441101
 
         case "441102":
             const module441102 = new Module("Architectures, Operating Systems & the Cloud")
-            module441102.setBlurb("This module is entirely assessed using your Portfolio")
-            module441102.addComponent("Overall Structure & Presentation", 10, 10)
-            module441102.setBlurb("For each lab report:<br> - Task completion (7 marks)<br> - Discussion observations (3 marks)")
-            module441102.addComponent("Lab Reports: Task Completion", 63, 63)
-            module441102.addComponent("Lab Reports: Discussion & Observations", 27, 27)
+            module441102.addTextbox("This module is entirely assessed using your lab report.")
+            module441102.addTextbox("For each lab section:<br> - Task completion (7 marks)<br> - Discussion observations (3 marks)")
+            module441102.addComponent("Report Structure & Presentation", 10, 10)
+            module441102.addComponent("Lab Sections: Task Completion", 63, 63)
+            module441102.addComponent("Lab Sections: Discussion & Observations", 27, 27)
             return module441102
 
         case "441104":
