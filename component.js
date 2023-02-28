@@ -49,6 +49,6 @@ export class Component {
 
     updateLabelText() {
 
-        this.labelElement.innerText = `${this.title} mark: ${this.user_score}/${this.marks_available}`
+        this.labelElement.innerText = `${this.title}: ${this.user_score}/${this.marks_available}`
     }
 }

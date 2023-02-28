@@ -31,36 +31,11 @@ function CreateModule(module_id){
 
         case "441102":
             const module441102 = new Module("Architectures, Operating Systems & the Cloud")
-            
-            module441102.addComponent("Structure & Presentation", 10, 10)
-
-            module441102.addComponent("Lab 1 Completion", 7, 7)
-            module441102.addComponent("Lab 1 Observations", 3, 3)
-
-            module441102.addComponent("Lab 2 Completion", 7, 7)
-            module441102.addComponent("Lab 2 Observations", 3, 3)
-
-            module441102.addComponent("Lab 3 Completion", 7, 7)
-            module441102.addComponent("Lab 3 Observations", 3, 3)
-
-            module441102.addComponent("Lab 4 Completion", 7, 7)
-            module441102.addComponent("Lab 4 Observations", 3, 3)
-
-            module441102.addComponent("Lab 5 Completion", 7, 7)
-            module441102.addComponent("Lab 5 Observations", 3, 3)
-
-            module441102.addComponent("Lab 6 Completion", 7, 7)
-            module441102.addComponent("Lab 6 Observations", 3, 3)
-
-            module441102.addComponent("Lab 7 Completion", 7, 7)
-            module441102.addComponent("Lab 7 Observations", 3, 3)
-
-            module441102.addComponent("Lab 8 Completion", 7, 7)
-            module441102.addComponent("Lab 8 Observations", 3, 3)
-
-            module441102.addComponent("Lab 9 Completion", 7, 7)
-            module441102.addComponent("Lab 9 Observations", 3, 3)
-
+            module441102.setBlurb("This module is entirely assessed using your Portfolio")
+            module441102.addComponent("Overall Structure & Presentation", 10, 10)
+            module441102.setBlurb("For each lab report:<br> - Task completion (7 marks)<br> - Discussion observations (3 marks)")
+            module441102.addComponent("Lab Reports: Task Completion", 63, 63)
+            module441102.addComponent("Lab Reports: Discussion & Observations", 27, 27)
             return module441102
 
         case "441104":
