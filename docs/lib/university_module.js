@@ -28,8 +28,12 @@ export class UniversityModule {
     buildElements() {
 
         this.moduleContainer = this.makeDivWithClasses(["module-container"])
+        this.createTitleCard()
+        this.createContentBox()
+    }
 
-        // title card
+    createTitleCard() {
+
         const titleCard = this.makeDivWithClasses(["titlecard"])
         this.moduleContainer.appendChild(titleCard)
 
@@ -41,7 +45,11 @@ export class UniversityModule {
         this.moduleGrade.innerHTML = `<h2>0%</h2>`
         titleCard.appendChild(this.moduleGrade)
 
-        // assessment scores & visualization
+        return titleCard
+    }
+
+    createContentBox() {
+
         const contentBox = this.makeDivWithClasses(["content-box"])
         this.moduleContainer.appendChild(contentBox)
 
@@ -50,7 +58,10 @@ export class UniversityModule {
 
         this.graph = this.makeDivWithClasses(["grade-graph"])
         contentBox.appendChild(this.graph)
+
+        return contentBox
     }
+
 
     recalculateAttainment() {
 
