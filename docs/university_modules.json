@@ -1,0 +1,51 @@
+{
+  "441101": {
+    "title": "Programming Portfolio",
+    "academic_year": "2022-'23",
+    "subcomponents": [
+      { "title": "Summative Assessments 1-8", "weight": 30, "marks": 30 },
+      { "title": "Practical Exam", "weight": 25, "marks": 7 },
+      { "title": "Summative Assessments 9-14", "weight": 20, "marks": 20 },
+      { "title": "Capstone Project", "weight": 25, "marks": 50 }
+    ]
+  },
+  "441102": {
+    "title": "Architectures, Operating Systems & the Cloud",
+    "academic_year": "2022-'23",
+    "subcomponents": [
+      { "title": "Report Structure & Presentation", "weight": 10, "marks": 10 },
+      { "title": "Lab Sections: Task Completion", "weight": 63, "marks": 63 },
+      { "title": "Lab Sections: Discussion & Observations", "weight": 27, "marks": 27 }
+    ]
+  },
+  "441104": {
+    "title": "Computational Thinking",
+    "academic_year": "2022-'23",
+    "subcomponents": [
+      { "title": "Assessment A", "weight": 15, "marks": 15 },
+      { "title": "Assessment B", "weight": 20, "marks": 20 },
+      { "title": "Assessment C", "weight": 15, "marks": 15 },
+      { "title": "Assessment D", "weight": 20, "marks": 20 },
+      { "title": "Assessment E", "weight": 20, "marks": 20 },
+      { "title": "Assessment F", "weight": 10, "marks": 10 }
+    ]
+  },
+  "441105": {
+    "title": "Algorithms & Data Structures",
+    "academic_year": "2022-'23",
+    "subcomponents": [
+      { "title": "Coursework", "weight": 60, "marks": 100 },
+      { "title": "Exam", "weight": 40, "marks": 50 }
+    ]
+  },
+  "441108": {
+    "title": "Professional Development",
+    "academic_year": "2022-'23",
+    "subcomponents": [
+      { "title": "Written Portfolio", "weight": 30, "marks": 50 },
+      { "title": "Sector Quizzes A", "weight": 15, "marks": 25 },
+      { "title": "Sector Quizzes B", "weight": 15, "marks": 25 },
+      { "title": "Team Design Project", "weight": 40, "marks": 100 }
+    ]
+  }
+}

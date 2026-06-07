@@ -18,13 +18,6 @@ export class UniversityModule {
         this.buildElements()
     }
 
-    addTextbox(message) {
-
-        const textbox = this.makeDivWithClasses(["component-form", "blurb-box"])
-        textbox.innerHTML = message
-        this.userForm.appendChild(textbox)
-    }
-
     buildElements() {
 
         this.moduleContainer = this.makeDivWithClasses(["module-container"])
@@ -61,7 +54,6 @@ export class UniversityModule {
 
         return contentBox
     }
-
 
     recalculateAttainment() {
 
