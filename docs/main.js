@@ -1,5 +1,5 @@
 
-import { Module } from "./module.js"
+import { Module } from "./lib/module.js"
 
 const courseSelector = document.getElementById("course-selector")
 courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
