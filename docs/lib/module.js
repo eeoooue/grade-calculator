@@ -1,5 +1,5 @@
 
-import { Component } from "./component.js"
+import { ModuleSubcomponent } from "./module_subcomponent.js"
 import { Factory } from "./factory.js"
 
 export class Module {
@@ -11,7 +11,6 @@ export class Module {
         this.components = []
         this.attainment = 0
         this.Factory = new Factory()
-
         this.buildElements()
     }
 
@@ -58,11 +57,11 @@ export class Module {
         this.moduleGrade.innerHTML = `<h2>${Math.floor(this.attainment)}%</h2>`
     }
 
-    addComponent(title, weight, marks) {
+    addSubcomponent(title, weight, marks) {
 
         this.curweight += weight
 
-        const component = new Component(this, title, weight, marks)
+        const component = new ModuleSubcomponent(this, title, weight, marks)
         this.components.push(component)
         this.graph.appendChild(component.progressBar.container)
         this.userForm.appendChild(component.pairbox)

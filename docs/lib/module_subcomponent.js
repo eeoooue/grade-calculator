@@ -2,7 +2,7 @@
 import { Factory } from "./factory.js"
 import { ProgressBar } from "./progress_bar.js"
 
-export class Component {
+export class ModuleSubcomponent {
 
     constructor(parent, title, weight, marks) {
 
