@@ -21,28 +21,30 @@ export class UniversityModule {
 
     buildElements() {
 
-        this.graph = this.makeDivWithClasses(["grade-graph"])
 
         this.moduleContainer = this.makeDivWithClasses(["module-container"])
 
+        // title card
         this.titleCard = this.makeDivWithClasses(["titlecard"])
         this.moduleContainer.appendChild(this.titleCard)
 
-        this.moduleName = this.makeDivWithClasses(["title-ele", "module-name"])
-        this.moduleName.innerHTML = `<h2>${this.title}</h2>`
-        this.titleCard.appendChild(this.moduleName)
+        const moduleName = this.makeDivWithClasses(["title-ele", "module-name"])
+        moduleName.innerHTML = `<h2>${this.title}</h2>`
+        this.titleCard.appendChild(moduleName)
 
         this.moduleGrade = this.makeDivWithClasses(["title-ele", "module-grade"])
         this.moduleGrade.innerHTML = `<h2>0%</h2>`
         this.titleCard.appendChild(this.moduleGrade)
 
-        this.contentBox = this.makeDivWithClasses(["content-box"])
-        this.moduleContainer.appendChild(this.contentBox)
+        // assessment scores & visualization
+        const contentBox = this.makeDivWithClasses(["content-box"])
+        this.moduleContainer.appendChild(contentBox)
 
         this.userForm = this.makeDivWithClasses(["user-form"])
-        this.contentBox.appendChild(this.userForm)
+        contentBox.appendChild(this.userForm)
 
-        this.contentBox.appendChild(this.graph)
+        this.graph = this.makeDivWithClasses(["grade-graph"])
+        contentBox.appendChild(this.graph)
     }
 
     recalculateAttainment() {
