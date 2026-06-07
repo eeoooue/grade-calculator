@@ -82,5 +82,40 @@
     "subcomponents": [
       { "title": "Mark", "weight": 100, "marks": 100 }
     ]
+  },
+  "600089": {
+    "title": "Distributed Systems Programming",
+    "academic_year": "2024-'25",
+    "subcomponents": [
+      { "title": "Mark", "weight": 100, "marks": 100 }
+    ]
+  },
+  "600091": {
+    "title": "Honours Stage Project",
+    "academic_year": "2024-'25",
+    "subcomponents": [
+      { "title": "Mark", "weight": 100, "marks": 100 }
+    ]
+  },
+  "600093": {
+    "title": "Computational Science",
+    "academic_year": "2024-'25",
+    "subcomponents": [
+      { "title": "Mark", "weight": 100, "marks": 100 }
+    ]
+  },
+  "662086": {
+    "title": "Machine Learning",
+    "academic_year": "2024-'25",
+    "subcomponents": [
+      { "title": "Mark", "weight": 100, "marks": 100 }
+    ]
+  },
+  "662253": {
+    "title": "Natural Language Processing",
+    "academic_year": "2024-'25",
+    "subcomponents": [
+      { "title": "Mark", "weight": 100, "marks": 100 }
+    ]
   }
 }
