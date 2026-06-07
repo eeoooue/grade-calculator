@@ -1,5 +1,5 @@
 
-import { Palette } from "./palette.js"
+import { ProgressBarPalette } from "./progress_bar_palette.js"
 
 export class ProgressBar {
 
@@ -40,7 +40,7 @@ export class ProgressBar {
     }
 
     updateBarColour(percentage) {
-        const palette = new Palette()
+        const palette = new ProgressBarPalette()
         palette.matchPercentage(percentage)
         this.progress_bar.style.backgroundColor = `rgb(${palette.red}, ${palette.green}, ${palette.blue})`
     }
