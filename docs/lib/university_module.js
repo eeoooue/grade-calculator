@@ -9,6 +9,12 @@ export class UniversityModule {
         this.curweight = 0
         this.components = []
         this.attainment = 0
+
+        this.moduleContainer = null
+        this.moduleGrade = null
+        this.userForm = null
+        this.graph = null
+
         this.buildElements()
     }
 
@@ -21,20 +27,19 @@ export class UniversityModule {
 
     buildElements() {
 
-
         this.moduleContainer = this.makeDivWithClasses(["module-container"])
 
         // title card
-        this.titleCard = this.makeDivWithClasses(["titlecard"])
-        this.moduleContainer.appendChild(this.titleCard)
+        const titleCard = this.makeDivWithClasses(["titlecard"])
+        this.moduleContainer.appendChild(titleCard)
 
         const moduleName = this.makeDivWithClasses(["title-ele", "module-name"])
         moduleName.innerHTML = `<h2>${this.title}</h2>`
-        this.titleCard.appendChild(moduleName)
+        titleCard.appendChild(moduleName)
 
         this.moduleGrade = this.makeDivWithClasses(["title-ele", "module-grade"])
         this.moduleGrade.innerHTML = `<h2>0%</h2>`
-        this.titleCard.appendChild(this.moduleGrade)
+        titleCard.appendChild(this.moduleGrade)
 
         // assessment scores & visualization
         const contentBox = this.makeDivWithClasses(["content-box"])
