@@ -61,28 +61,34 @@
     "title": "Databases and Networks",
     "academic_year": "2023-'24",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Coursework", "weight": 60, "marks": 100 },
+      { "title": "Exam", "weight": 40, "marks": 100 }
     ]
   },
   "551458": {
     "title": "Artificial Intelligence",
     "academic_year": "2023-'24",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Coursework", "weight": 100, "marks": 100 }
     ]
   },
   "551460": {
     "title": "User Interfaces and Experience",
     "academic_year": "2023-'24",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Cognitive Walkthroughs", "weight": 25, "marks": 100 },
+      { "title": "Iterative Prototypes", "weight": 30, "marks": 100 },
+      { "title": "Realised Prototype", "weight": 20, "marks": 100 },
+      { "title": "Testing & Improvement", "weight": 25, "marks": 100 }
     ]
   },
   "551462": {
     "title": "Design Develop Deploy",
     "academic_year": "2023-'24",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Individual Portfolio", "weight": 40, "marks": 100 },
+      { "title": "Group Project", "weight": 54, "marks": 100 },
+      { "title": "Individual Reflection", "weight": 6, "marks": 100 }
     ]
   },
   "600089": {
