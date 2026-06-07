@@ -12,7 +12,8 @@ export class ProgressBar {
         this.container.classList.add("grade-bar")
         this.container.style.width = `${weight}%`
 
-        this.bar = factory.makeDivWithClasses(["bar-progress"])
+        this.bar = document.createElement("div")
+        this.bar.classList.add("bar-progress")
         this.container.appendChild(this.bar)
 
         this.refresh()
