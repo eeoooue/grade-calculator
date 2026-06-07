@@ -1,5 +1,5 @@
 
-export class Palette {
+export class ProgressBarPalette {
 
     constructor() {
 
