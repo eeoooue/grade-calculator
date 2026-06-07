@@ -15,7 +15,11 @@
     "subcomponents": [
       { "title": "Report Structure & Presentation", "weight": 10, "marks": 10 },
       { "title": "Lab Sections: Task Completion", "weight": 63, "marks": 63 },
-      { "title": "Lab Sections: Discussion & Observations", "weight": 27, "marks": 27 }
+      {
+        "title": "Lab Sections: Discussion & Observations",
+        "weight": 27,
+        "marks": 27
+      }
     ]
   },
   "441104": {
@@ -68,9 +72,7 @@
   "551458": {
     "title": "Artificial Intelligence",
     "academic_year": "2023-'24",
-    "subcomponents": [
-      { "title": "Coursework", "weight": 100, "marks": 100 }
-    ]
+    "subcomponents": [{ "title": "Coursework", "weight": 100, "marks": 100 }]
   },
   "551460": {
     "title": "User Interfaces and Experience",
@@ -95,35 +97,32 @@
     "title": "Distributed Systems Programming",
     "academic_year": "2024-'25",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Coursework", "weight": 60, "marks": 100 },
+      { "title": "Exam", "weight": 40, "marks": 100 }
     ]
   },
   "600091": {
     "title": "Honours Stage Project",
     "academic_year": "2024-'25",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Project Definition Document", "weight": 10, "marks": 100 },
+      { "title": "Interim Report", "weight": 10, "marks": 100 },
+      { "title": "Final Report", "weight": 80, "marks": 100 }
     ]
   },
   "600093": {
     "title": "Computational Science",
     "academic_year": "2024-'25",
-    "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
-    ]
+    "subcomponents": [{ "title": "Coursework", "weight": 100, "marks": 100 }]
   },
   "662086": {
     "title": "Machine Learning",
     "academic_year": "2024-'25",
-    "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
-    ]
+    "subcomponents": [{ "title": "Coursework", "weight": 100, "marks": 100 }]
   },
   "662253": {
     "title": "Natural Language Processing",
     "academic_year": "2024-'25",
-    "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
-    ]
+    "subcomponents": [{ "title": "Coursework", "weight": 100, "marks": 100 }]
   }
 }
