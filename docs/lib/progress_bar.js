@@ -1,5 +1,4 @@
 
-import { Factory } from "./factory.js"
 import { Palette } from "./palette.js"
 
 export class ProgressBar {
@@ -9,8 +8,8 @@ export class ProgressBar {
         this.parent = parent
         this.palette = new Palette()
 
-        const factory = new Factory()
-        this.container = factory.makeDivWithClasses(["grade-bar"])
+        this.container = document.createElement("div")
+        this.container.classList.add("grade-bar")
         this.container.style.width = `${weight}%`
 
         this.bar = factory.makeDivWithClasses(["bar-progress"])
