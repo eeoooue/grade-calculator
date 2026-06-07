@@ -52,7 +52,9 @@
     "title": "Advanced Programming",
     "academic_year": "2023-'24",
     "subcomponents": [
-      { "title": "Mark", "weight": 100, "marks": 100 }
+      { "title": "Lab Book", "weight": 18, "marks": 18 },
+      { "title": "Capstone Report", "weight": 9, "marks": 9 },
+      { "title": "Capstone Software", "weight": 73, "marks": 100 }
     ]
   },
   "551457": {
