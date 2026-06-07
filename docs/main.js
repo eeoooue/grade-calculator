@@ -5,6 +5,7 @@ const courseSelector = document.getElementById("course-selector")
 courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
 
 PopulateAcademicYearSelector()
+PopulateCourseSelector()
 SwapToModule("441105")
 
 async function PopulateAcademicYearSelector() {
@@ -18,9 +19,13 @@ async function PopulateAcademicYearSelector() {
     yearSelector.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join("")
 }
 
+async function PopulateCourseSelector() {
 
-
-
+    const response = await fetch("university_modules.json");
+    const modules = await response.json();
+    const courseSelector = document.getElementById("course-selector")
+    courseSelector.innerHTML = Object.entries(modules).map(([id, m]) => `<option value="${id}">${m.title}</option>`).join("")
+}
 
 async function SwapToModule(module_id) {
 
