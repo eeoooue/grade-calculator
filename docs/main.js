@@ -1,14 +1,18 @@
 
 import { UniversityModule } from "./lib/university_module.js"
 
-const courseSelector = document.getElementById("course-selector")
-courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
 init()
 
 async function init() {
     await PopulateAcademicYearSelector()
     await PopulateModuleSelector()
     ResetSelectedModule()
+
+    const courseSelector = document.getElementById("course-selector")
+    courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
+
+    const yearSelector = document.getElementById("year-selector")
+    yearSelector.addEventListener("input", (e) => UpdateModuleSelection())
 }
 
 function ResetSelectedModule(){
@@ -37,8 +41,15 @@ async function PopulateModuleSelector() {
 
     const response = await fetch("university_modules.json");
     const modules = await response.json();
+
+    const yearSelector = document.getElementById("year-selector")
+    const selectedAcademicYear = yearSelector.value
+
     const courseSelector = document.getElementById("course-selector")
-    courseSelector.innerHTML = Object.entries(modules).map(([id, m]) => `<option value="${id}">${m.title}</option>`).join("")
+    courseSelector.innerHTML = Object.entries(modules)
+        .filter(([id, m]) => m.academic_year === selectedAcademicYear)
+        .map(([id, m]) => `<option value="${id}">${m.title}</option>`)
+        .join("")
 }
 
 async function SwapToModule(module_id) {
