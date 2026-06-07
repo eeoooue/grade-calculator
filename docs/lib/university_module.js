@@ -1,7 +1,7 @@
 
-import { ModuleSubcomponent } from "./module_subcomponent.js"
+import { UniversityModuleSubcomponent } from "./university_module_subcomponent.js"
 
-export class Module {
+export class UniversityModule {
 
     constructor(title) {
 
@@ -59,7 +59,7 @@ export class Module {
 
         this.curweight += weight
 
-        const component = new ModuleSubcomponent(this, title, weight, marks)
+        const component = new UniversityModuleSubcomponent(this, title, weight, marks)
         this.components.push(component)
         this.graph.appendChild(component.progressBar.container)
         this.userForm.appendChild(component.pairbox)

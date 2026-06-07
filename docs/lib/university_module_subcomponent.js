@@ -1,7 +1,7 @@
 
 import { ProgressBar } from "./progress_bar.js"
 
-export class ModuleSubcomponent {
+export class UniversityModuleSubcomponent {
 
     constructor(parent, title, weight, marks) {
 
