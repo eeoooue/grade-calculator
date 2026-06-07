@@ -3,10 +3,24 @@ import { UniversityModule } from "./lib/university_module.js"
 
 const courseSelector = document.getElementById("course-selector")
 courseSelector.addEventListener("input", (e) => SwapToModule(e.target.value))
+init()
 
-PopulateAcademicYearSelector()
-PopulateCourseSelector()
-SwapToModule("441105")
+async function init() {
+    await PopulateAcademicYearSelector()
+    await PopulateModuleSelector()
+    ResetSelectedModule()
+}
+
+function ResetSelectedModule(){
+
+    const courseSelector = document.getElementById("course-selector")
+    SwapToModule(courseSelector.value)
+}
+
+async function UpdateModuleSelection(){
+    await PopulateModuleSelector()
+    ResetSelectedModule()
+}
 
 async function PopulateAcademicYearSelector() {
 
@@ -19,7 +33,7 @@ async function PopulateAcademicYearSelector() {
     yearSelector.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join("")
 }
 
-async function PopulateCourseSelector() {
+async function PopulateModuleSelector() {
 
     const response = await fetch("university_modules.json");
     const modules = await response.json();
