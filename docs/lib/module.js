@@ -1,6 +1,5 @@
 
 import { ModuleSubcomponent } from "./module_subcomponent.js"
-import { Factory } from "./factory.js"
 
 export class Module {
 
@@ -10,38 +9,37 @@ export class Module {
         this.curweight = 0
         this.components = []
         this.attainment = 0
-        this.Factory = new Factory()
         this.buildElements()
     }
 
     addTextbox(message) {
 
-        const textbox = this.Factory.makeDivWithClasses(["component-form", "blurb-box"])
+        const textbox = this.makeDivWithClasses(["component-form", "blurb-box"])
         textbox.innerHTML = message
         this.userForm.appendChild(textbox)
     }
 
     buildElements() {
 
-        this.graph = this.Factory.makeDivWithClasses(["grade-graph"])
+        this.graph = this.makeDivWithClasses(["grade-graph"])
 
-        this.moduleContainer = this.Factory.makeDivWithClasses(["module-container"])
+        this.moduleContainer = this.makeDivWithClasses(["module-container"])
 
-        this.titleCard = this.Factory.makeDivWithClasses(["titlecard"])
+        this.titleCard = this.makeDivWithClasses(["titlecard"])
         this.moduleContainer.appendChild(this.titleCard)
 
-        this.moduleName = this.Factory.makeDivWithClasses(["title-ele", "module-name"])
+        this.moduleName = this.makeDivWithClasses(["title-ele", "module-name"])
         this.moduleName.innerHTML = `<h2>${this.title}</h2>`
         this.titleCard.appendChild(this.moduleName)
 
-        this.moduleGrade = this.Factory.makeDivWithClasses(["title-ele", "module-grade"])
+        this.moduleGrade = this.makeDivWithClasses(["title-ele", "module-grade"])
         this.moduleGrade.innerHTML = `<h2>0%</h2>`
         this.titleCard.appendChild(this.moduleGrade)
 
-        this.contentBox = this.Factory.makeDivWithClasses(["content-box"])
+        this.contentBox = this.makeDivWithClasses(["content-box"])
         this.moduleContainer.appendChild(this.contentBox)
 
-        this.userForm = this.Factory.makeDivWithClasses(["user-form"])
+        this.userForm = this.makeDivWithClasses(["user-form"])
         this.contentBox.appendChild(this.userForm)
 
         this.contentBox.appendChild(this.graph)
@@ -65,5 +63,14 @@ export class Module {
         this.components.push(component)
         this.graph.appendChild(component.progressBar.container)
         this.userForm.appendChild(component.pairbox)
+    }
+
+    makeDivWithClasses(classes) {
+
+        const div = document.createElement("div")
+        for (const className of classes) {
+            div.classList.add(className)
+        }
+        return div
     }
 }
