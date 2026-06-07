@@ -1,4 +1,4 @@
-# [grade-calculator](https://eeoooue.github.io/grade-calculator/)
+# grade-calculator
  
 A module grade calculator for my course at university.
 
