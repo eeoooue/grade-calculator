@@ -1,7 +1,7 @@
 
 import { UniversityModule } from "./lib/university_module.js"
 
-const MODULE_SELECTOR_ID = "course-selector"
+const MODULE_SELECTOR_ID = "module-selector"
 const ACADEMIC_YEAR_SELECTOR_ID = "year-selector"
 
 init()
