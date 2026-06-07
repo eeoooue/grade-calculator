@@ -6,25 +6,42 @@ export class ProgressBar {
     constructor(parent, weight) {
 
         this.parent = parent
-        this.palette = new Palette()
-
-        this.container = document.createElement("div")
-        this.container.classList.add("grade-bar")
-        this.container.style.width = `${weight}%`
-
-        this.bar = document.createElement("div")
-        this.bar.classList.add("bar-progress")
-        this.container.appendChild(this.bar)
+        this.container = this.createWeightedGradeBar(weight)
+        this.progress_bar = this.createProgressBar()
+        this.container.appendChild(this.progress_bar)
 
         this.refresh()
     }
 
+    createWeightedGradeBar(weight) {
+
+        let element = document.createElement("div")
+        element = document.createElement("div")
+        element.classList.add("grade-bar")
+        element.style.width = `${weight}%`
+        return element
+    }
+
+    createProgressBar() {
+
+        let element = document.createElement("div")
+        element.classList.add("bar-progress")
+        return element
+    }
+
     refresh() {
-
         const percentage = this.parent.getPercentageScore()
+        this.updateBarHeight(percentage)
+        this.updateBarColour(percentage)
+    }
 
-        this.palette.matchPercentage(percentage)
-        this.bar.style.height = `${percentage}%`
-        this.bar.style.backgroundColor = `rgb(${this.palette.red}, ${this.palette.green}, ${this.palette.blue})`
+    updateBarHeight(percentage) {
+        this.progress_bar.style.height = `${percentage}%`
+    }
+
+    updateBarColour(percentage) {
+        const palette = new Palette()
+        palette.matchPercentage(percentage)
+        this.progress_bar.style.backgroundColor = `rgb(${palette.red}, ${palette.green}, ${palette.blue})`
     }
 }
